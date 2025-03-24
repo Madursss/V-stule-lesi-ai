@@ -1,31 +1,28 @@
 <!DOCTYPE html>
+<html>
 <head>
-   
-
     <script>
-        // Function to check if inputs are empty and show an alert if so
+      
         function validateForm(event) {
-            // Select all input elements inside the <ol>
+            event.preventDefault(); 
+            
+            
             var inputs = document.querySelectorAll("ol input, ol select");
+            var inputValues = [];
 
-            // Loop through each input element and check if it's empty
             for (var i = 0; i < inputs.length; i++) {
                 if (inputs[i].value.trim() === "") {
                     alert("Lūdzu aizpildiet visus laukumus.");
-                    event.preventDefault(); // Prevent form submission
                     return false;
                 }
+                inputValues.push(inputs[i].value.trim());
             }
-
-            // If all fields are filled, redirect to the next page
-            setTimeout(function() {
-                window.location.href = "html2.html"; // Replace with your desired page
-            }, 100); // Adding a small delay to allow time for validation to complete
-
-            return false; // Prevents default form submission
+            localStorage.setItem("userInputs", JSON.stringify(inputValues));
+            window.location.href = "html2.html";
+            
+            return false;
         }
     </script>
- 
 </head>
 
 <body style="background-image: url('books_colorful_library_234675_3840x2160.jpg'); 
