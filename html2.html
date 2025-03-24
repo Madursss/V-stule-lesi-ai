@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezultātu lapa</title>
+    <script>
+        function displayData() {
+            // Get saved data from localStorage
+            var formData = JSON.parse(localStorage.getItem("userInputs"));
+
+            if (formData) {
+                // Insert saved values into the text
+                document.getElementById("filledText").innerHTML = `
+                    Labdien, cienījamā skolotāja Emīlija Lesiņa!<br><br>
+                    Vēlamies Jums pateikties par <b>${formData[0]}</b> stundām, kurās vienmēr valda <b>${formData[1]}</b> atmosfēra. 
+                    Jūsu skaidrojumi par <b>${formData[2]}</b> palīdz mums labāk izprast ķīmiju un pat sākt to <b>${formData[3]}</b>!<br><br>
+                    Īpaši novērtējam Jūsu <b>${formData[4]}</b>, kas motivē mūs censties vairāk. 
+                    Lai gan dažreiz <b>${formData[5]}</b>, Jūs vienmēr atbalstāt un palīdzat atrast risinājumu.<br><br>
+                    Novēlam Jums <b>${formData[6]}</b> un daudz pacietības ar mums visiem!<br><br>
+                    Ar cieņu,<br>
+                    <b>${formData[7]}</b>
+                `;
+            } else {
+                document.getElementById("filledText").innerHTML = "Nav saglabātu datu.";
+            }
+        }
+
+        window.onload = displayData;
+    </script>
+</head>
+
+<body style="background-image: url('books_colorful_library_234675_3840x2160.jpg'); 
+             background-size: cover; 
+             background-position: center; 
+             background-attachment: fixed; 
+             margin: 1; 
+             padding: 0;">
+
+    <h2 style="text-align: center; background: rgba(254, 254, 254, 0.5); padding: 10px; border-radius: 5px; display: block; width: fit-content; margin: 0 auto;">Jūsu aizpildītā vēstule</h2>
+    <br>  
+    
+    <div style=" 
+    border: 2px solid black;
+    background-image: url('old.jpg'); 
+    background-size: cover; 
+    color: rgb(66, 3, 3); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    width: 60%; 
+    margin: 0 auto; 
+    padding: 20px; 
+    position: relative;
+    min-height: 500px;
+    " id="filledText">
+    </div>
+    
+    <br>
+    
+
+</body>
+</html>

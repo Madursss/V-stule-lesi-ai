@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+   
+
+    <script>
+        // Function to check if inputs are empty and show an alert if so
+        function validateForm(event) {
+            // Select all input elements inside the <ol>
+            var inputs = document.querySelectorAll("ol input, ol select");
+
+            // Loop through each input element and check if it's empty
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].value.trim() === "") {
+                    alert("Lūdzu aizpildiet visus laukumus.");
+                    event.preventDefault(); // Prevent form submission
+                    return false;
+                }
+            }
+
+            // If all fields are filled, redirect to the next page
+            setTimeout(function() {
+                window.location.href = "html2.html"; // Replace with your desired page
+            }, 100); // Adding a small delay to allow time for validation to complete
+
+            return false; // Prevents default form submission
+        }
+    </script>
+ 
+</head>
+
+<body style="background-image: url('books_colorful_library_234675_3840x2160.jpg'); 
+             background-size: cover; 
+             background-position: center; 
+             background-attachment: fixed; 
+             margin: 1; 
+             padding: 0;">
+
+<h2 style="text-align: center; background: rgba(254, 254, 254, 0.5); padding: 10px; border-radius: 5px; display: block; width: fit-content; margin: 0 auto;">Ieraksti laukumos sava stāsta elementus</h2>
+    <br>  
+  
+    <div style=" 
+    border: 2px solid black;
+    background-image: url('old.jpg'); 
+    background-size: cover; 
+    color: rgb(66, 3, 3); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    width: 60%; 
+    margin: 0 auto; 
+    padding: 20px; 
+    position: relative;
+    min-height: 500px;
+    ">
+
+        <header style="text-align: center; font-size: 25px;">Vēstule Skolotājai</header>
+
+        <p>
+            <form onsubmit="return validateForm(event)">
+                <ol style="list-style-position: inside; padding: 0; text-align: center; line-height: 1.8;">
+                    <li>Īpašības vārds: <input type="text" size="6" required></li>
+                    <li>Kāda atmosfēra mēdz būt lielveikalā:<input type="text" size="5" required></li>
+                    <li>Jebkāda tēma:<input type="text" size="10" required></li>
+                    <li>Darbības vārds:<input type="text" size="8" required></li>
+                    <li>Lietvārds (A. Ko?)<input type="text" size="5" required> </li>
+                    <li>Negatīvs darbības vārds (Ko dara?):<input type="text" size="8" required> , </li>
+                    <li>Ko novēlētu cietumniekam:<input type="text" size="20" required> </li>
+                    <li>Kādu cilvēka vārdu:<input type="text" size="5" required></li>
+                </ol>  
+
+                <button type="submit" style="
+                    position: align-centre;
+                    bottom:10px;
+                    padding:10px 15px;
+                    border: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    background-color: rgba(0, 0, 0, 0);
+                    color: rgb(51, 4, 4);
+                    border: 2px solid rgb(51, 4, 4);
+                    display: inline;
+                "> Paraksts</button>
+
+            </form>
+        </p>
+    
+    </div>
+</body>
+</html>
